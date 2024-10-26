@@ -19,5 +19,5 @@ let age = 22
 //object
 
 console.log(typeof n)
-console.log(typeof undefined)  //undefined
-console.log(typeof null)     //object
+console.log(typeof undefined)  //undefined  //Remember
+console.log(typeof null)     //object       //Remember
