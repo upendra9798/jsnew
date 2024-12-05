@@ -37,12 +37,39 @@ const obj2 = {3: "a", 4: "b"}
 const obj3 = {...obj1, ...obj2}
 // console.log(obj3);
 
-console.log(tinderUser);
-console.log(Object.keys(tinderUser));
-console.log(Object.values(tinderUser));
-console.log(Object.entries(tinderUser));
+// console.log(tinderUser);
+// console.log(Object.keys(tinderUser));
+// console.log(Object.values(tinderUser));
+// console.log(Object.entries(tinderUser));
 
-console.log(tinderUser.hasOwnProperty('isLoggedIn'));  //To see whether the property exist or not
+// console.log(tinderUser.hasOwnProperty('isLoggedIn'));  //To see whether the property exist or not
 
 
+// DE STRUCTURE AND JSON API
 
+const course = {
+    coursename: "js in hindi",
+    price: "999",
+    courseInstructor: "upendra"
+}
+// course.courseInstructor
+
+const {courseInstructor: Instruc} = course  //Destructuring
+
+// console.log(courseInstructor);
+// console.log(Instruc);
+
+
+// JASON API  (All leys and values are in strings)
+// {
+//     "name": "Upendra",
+//     "coursename": "js in hindi",
+//     "price": "free"
+// }
+
+// Array as JASON API 
+[
+    {},
+    {},
+    {}
+]
