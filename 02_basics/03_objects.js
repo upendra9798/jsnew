@@ -1,6 +1,7 @@
 //Singleton -object constructor(literals- not singleton)
 
-//object literals
+//object literals  (Simple syntax: { key: value }.
+// No restrictions on creating multiple instances.)
 
 const mySym = Symbol("key1")
 
