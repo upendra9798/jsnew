@@ -43,4 +43,52 @@ function loginUserMessage(username){  //Ypu can give any default value like user
 
 // loginUserMessage()  //Not work
 // console.log(loginUserMessage("Upendra"));
-console.log(loginUserMessage());  //If no username provided then undefined not null
+// console.log(loginUserMessage());  //If no username provided then undefined not null
+
+
+
+// When we dont know the number of values to be entered For ex- Going to shopping the no of items buy
+
+//... can be used as spread or rest operator
+// function calculateCartPrice(...num1) {    //Here ... is rest operator 
+//     return num1
+// }
+
+// console.log(calculateCartPrice(200,300,5000,9000));  //With rest operator we can give
+// more than 1 values here(with only 1 parameter) in form of array
+
+function calculateCartPrice(val1, val2, ...num1) {    
+    return num1
+}
+
+// console.log(calculateCartPrice(200,300,5000,9000));  // 200-val1, 300-val2, rest in num1 as array
+
+
+//Object in function
+
+const user = {
+    username: "upendra",
+    price: 199
+}
+
+function handleObject(anyobject){
+    console.log(`Username is ${anyobject.username} and price is ${anyobject.price}`);
+    }
+    // handleObject(user)
+    //OR direct
+    handleObject({
+        username: "sam",
+        price: 399
+    })
+
+    // Array in function
+
+const myNewArray = [200,300,40,111]
+
+function returnSecondValue(getArray){
+    return getArray[1]
+}
+// console.log(returnSecondValue(myNewArray));
+console.log(returnSecondValue([200,300,40,111]));
+
+
