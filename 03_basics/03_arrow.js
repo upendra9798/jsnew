@@ -39,7 +39,7 @@ const user ={
 //ARROW FUNCTION (() => {})
 const chai =  () => {
             let username = "hitesh"
-            console.log(this.username);  //Undefined      //This not works in function
+            // console.log(this.username);  //Undefined      //This not works in function
             }
             // chai()
 
@@ -54,7 +54,9 @@ const chai =  () => {
 // const addTwo = (num1,num2) =>  (num1+num2)          //Paranthesis - no return needed
 
 // const addTwo = (num1,num2) =>  {username: "hitesh"}  - Undefined
-const addTwo = (num1,num2) =>  ({username: "hitesh"})  // paranthesis needed
-
+// const addTwo = (num1,num2) =>  ({username: "hitesh"})  // paranthesis needed
+const addTwo = (num1,num2) =>  {    //If we uses scope then we have to give return value
+   return "upendra"
+}
 console.log(addTwo(3,4));
 

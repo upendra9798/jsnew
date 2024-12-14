@@ -7,11 +7,13 @@ const coding = ["js", "ruby", "java", "python", "cpp"]
     
 // })
 
+//Another way to print 
 coding.forEach((item) => {   //Arrow function () => {}
     // console.log(item);
     
 })
 
+//Another way to print 
 // function printMe(item){
 //     console.log(item);
 //     }
