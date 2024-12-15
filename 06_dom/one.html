@@ -1,0 +1,57 @@
+<!-- DOM - Document object model -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>DOM learning</title>
+    <style>
+        .bg-black{
+            background-color: #212121;
+            color: #fff;
+        }
+    </style>
+</head>
+<body class="bg-black">
+    <div>
+        <h1  id="title" class="heading">
+            DOM learning on chai aur code <span style="display: none;">test text</span>
+        </h1>
+        <h2>Lorem ipsum dolor sit amet </h2>
+        <h2>Lorem ipsum dolor sit amet </h2>
+        <h2>Lorem ipsum dolor sit amet </h2>
+        <p>Lorem ipsum dolor sit amet </p>
+
+        <ul>
+            <li class="item">one</li>
+            <li class="item">two</li>
+            <li class="item">three</li>
+        </ul>
+</body>
+</html>
+
+
+
+<!--
+**** getattribute(className, heading, title)     
+setattribute - overwrite attribute
+
+
+***Try in h1(to view text)
+{innerHtml - gives gull html code ( DOM learning on chai aur code <span style="display: none;">test text</span>)
+innertext - gives visible text ( DOM learning on chai aur code)
+textContent - also gives hidden text (test text)
+}
+
+
+***queryselector - to select things like(p, ul, li, h1) (selects only one at a time)
+querySelectorAll -(It return nodelist) -(forEach works)
+-To slelct any attribute you do like array -[i](if also one element present)
+- selects every attribute given(li) then to use we have to do forex tempList[0].style.color
+
+***Another way to select 
+getElementbyClassName - gives HTML collection (no loop present -like forEach)
+So we have to convert it in array to use loops
+Array.from(name that you want to change)
+-->
