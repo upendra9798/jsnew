@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #212121;color:#fff ; ">
+    <ul class="language">
+        <li>Javascript</li>
+    </ul>
+    </body>
+
+<!-- // HOW TO ADD     -->
+
+<script>   //This script dynamically adds list items to an unordered list (<ul>) on the webpage. 
+    function addLanguage(language){
+//This function creates a new <li> (list item) and appends it to an existing <ul> element on the page with the class name language.
+       const li= document.createElement('li') //creates a new <li> element in the DOM, but it is not yet attached to the page.
+       li.innerHTML =`${language}` //innerHTML property sets the content of the <li> to the value passed in the language parameter.
+       document.querySelector('.language').appendChild(li)
+//The document.querySelector('.language') selects the <ul> element with the class name language.
+// The appendChild(li) method appends the newly created <li> to the end of the <ul>.
+    }
+    addLanguage("python")
+    addLanguage("typescript")
+
+// In upper method we have to traverse full tree(due to innerHTML) but not in lower one
+
+    //Another method to add language(Better method)
+   function addOptiLanguage(langName){
+    const li = document.createElement('li');   //The document.createElement() method requires a string as an argument, representing the HTML tag you want to create. 
+    li.appendChild(document.createTextNode(langName))
+    document.querySelector('.language').appendChild(li) //If the li variable hasn't been defined earlier, it will throw a ReferenceError
+//If li were defined (e.g., let li = 'div';), document.createElement(li) would create a <div> element.
+   }
+   addOptiLanguage('golang')
+
+
+// HOW TO EDIT
+ const secondLang = document.querySelector('li:nth-child(2)')  // selecting 2nd language
+//  secondLang.innerHTML = "Mojo"
+// ANother method
+
+const newli = document.createElement('li')  //li - list  
+// newli.appendChild("Mojo") // Not valid
+// The appendChild() method requires a Node as its argument, but "Mojo" is a string. 
+// This will result in an error because a string is not a valid Node.
+
+//So corret way is(1 mehod)
+// const text = document.createTextNode('Mojo');
+// newli.appendChild(text)
+// secondLang.replaceWith(newli)
+
+//ANother way(2nd method)
+newli.textContent = 'Mojo'
+secondLang.replaceWith(newli)
+
+//Edit
+const firstLang = document.querySelector('li:first-child') 
+// Both :first-child and :nth-child(1) will select the first child, but :first-child can only be used for the very first element of the parent.
+ 
+// 1 method
+// const newli2 = document.createElement('li')
+// newli2.textContent = 'typeScript'
+// firstLang.replaceWith(newli2)
+
+//Or
+firstLang.outerHTML = '<li>TypeScript</li'
+
+// REMOVE
+const lastLang = document.querySelector('li:last-child')
+lastLang.remove()
+</script>
+</html>
