@@ -9,7 +9,7 @@ form.addEventListener('submit', function (e) {
   e.preventDefault();//// it stops the default action of the form (refreshing the page) from occurring. This allows you to control what happens when the form is submitted — 
   // for example, performing custom logic such as validation, calculations, or making an API call, all without refreshing the page.
 
-  const height = parseInt(document.querySelector('#height').value);
+  const height = parseInt(document.querySelector('#height').value);  //parseInt - gives integer value
   const weight = parseInt(document.querySelector('#weight').value);
   const result = document.querySelector('#results');
 
