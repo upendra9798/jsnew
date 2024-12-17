@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html events</title>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing image</h2>
+    <div >
+        <ul id="images">
+            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <!-- <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" onclick="alert('owl')" ></li> (Can also be done but not good) -->
+            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+   </div>
+</body>
+<script>
+    // document.getElementById('owl').onclick=function(){ 
+    //     alert("owl clicked")
+    // }  
+// USE eVENT listner as it also gives propogation ability
+// attachEvent() (Used before)
+    // jQuery - on (Used before)
+
+//addEventListener('click', function(e){},false) -Syntax(If not written anything then default-false)
+
+document.getElementById('owl').addEventListener('click', function(e){
+    // console.log(e);// Logs the entire event object to the console, which includes properties like type, target, clientX, etc.
+    // console.log(e.target);//Logs the element that triggered the event (e.target).(gives the link)
+},false)
+// Can acess from Event - type, timestamp, defaultPrevented
+    // target, toElement, srcElement, currentTarget,
+    // clientX, clientY, screenX, screenY
+    // altkey, ctrlkey, shiftkey, keyCode
+
+    // EVENT PROPOGATION
+// 1. false-Bubbling Phase (Event Bubbling) - default
+document.getElementById('images').addEventListener('click', function(e){
+    console.log("url is clicked") //Root
+},false)
+
+document.getElementById('owl').addEventListener('click', function(e){
+    // console.log("owl is clicked")  //Target element
+},false) 
+// In the bubbling phase, the event starts at the target element(bottom to top)
+//  and then travels upward through its ancestors, all the way back to the root.
+
+// 2.true-Capturing Phase (Event Capturing)
+// document.getElementById('images').addEventListener('click', function(e){
+//     console.log("url is clicked") //Root
+// },true)
+
+document.getElementById('owl').addEventListener('click', function(e){
+    console.log("owl is clicked")  //Target element
+},true) 
+// the event starts at the root of the DOM tree (top to bottom)
+// and travels downward to the target element.
+
+document.getElementById('google').addEventListener('click', function(e){
+    e.preventDefault(); //Now it will not direct to google whent google is clicked
+    e.stopPropagation() //No propgation
+    console.log("google clicked")
+},false)
+
+// To make image invisivle when image is clicked
+document.querySelector('#images').addEventListener('click', function(e){
+    // console.log(e.target) //(selects image)From this image will disappear but dot will remain there 
+    // //So we use
+    // console.log(e.target.parentNode) //if image is clicked, it selects (li)
+    // let removeIt = e.target.parentNode
+    // removeIt.remove()  //or // removeIt.parentNode.removeChild(removeIt)
+  //If image is not clicked then it will come in li and it's parentnode is ul
+    //So it will remove all images
+    
+// Thus we have to use condition
+console.log(e.target.tagName);
+if(e.target.tagName=== 'IMG'){
+    let removeIt = e.target.parentNode
+    removeIt.remove() 
+}
+})
+</script>
+</html>
