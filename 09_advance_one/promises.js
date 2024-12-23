@@ -136,7 +136,20 @@ consumePomiseFive()
 
 // Same code with then
 
+//FETCH
+
 fetch('https://api.github.com/users/hiteshchoudhar') 
+//Executes before then upper code as it have priority then others (also if it have same timeout-Eg-1sec)
+// The fetch() function is a modern JavaScript API used to make HTTP requests, such as retrieving data from or sending data to a server.
+//It is built into most modern browsers and provides a simpler and more powerful way to handle network requests compared to the older XMLHttpRequest (XHR).
+//Replaces older XMLHttpRequest (XHR).
+
+//HTTP Errors:
+// HTTP errors (e.g., 404 Not Found, 500 Internal Server Error) do not reject the Promise.
+//How HTTP Responses Are Handled
+// Success: If the network request completes (even with HTTP errors), the Promise resolves, and a Response object is returned.
+// Failure: If the network fails (e.g., no internet, DNS issues, timeout), the Promise rejects with an error like TypeError: Failed to fetch.
+
 .then((response)=>{
     return response.json();
 })
