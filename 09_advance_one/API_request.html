@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #212121;">
+    xhr.readyState represents the state of the request. Its values are:
+    0 (UNSENT): The request is created but not yet opened.
+    1 (OPENED): The request has been opened with .open() but not yet sent.
+    2 (HEADERS_RECEIVED): The request has been sent, and the headers and status are available.
+    3 (LOADING): The response is being downloaded (partial data may be available).
+    4 (DONE): The entire response has been received and the request is complete.
+</body>
+<script>
+    const requestUrl = 'https://api.github.com/users/hiteshchoudhary'
+    const xhr=new XMLHttpRequest();
+    xhr.open('GET', requestUrl);
+xhr.onreadystatechange=function(){
+    console.log(xhr.readyState);
+//Attaches an event handler to the onreadystatechange property of the xhr object. 
+// This function will run every time the readyState of the request changes.
+   if(xhr.readyState===4){
+    const data=this.responseText
+console.log(data);
+
+    console.log(typeof(data));    // String (not object)
+    // console.log(data.followers);  // -Undefined (data-string)
+
+//     const data = JSON.parse(this.responseText)
+// //JSON.parse():// This function takes a JSON-formatted string (like responseText) 
+// // and converts it into a JavaScript object.
+//     console.log((typeof data));
+//     console.log(data.followers);
+    
+    
+    
+   }
+}    
+    xhr.send()
+</script>
+</html>
