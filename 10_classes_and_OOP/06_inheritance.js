@@ -3,7 +3,7 @@ class User {
         this.username = username
     }
 
-    logMe(){
+    logMe(){//simply gives console.log+* 
         console.log(`USERNAME is ${this.username}`);
     }
 }
@@ -16,7 +16,7 @@ The child class can override the parent class methods or define its own methods 
 */
 class Teacher extends User{
     constructor(username, email, password){
-        super(username)
+        super(username) // can't use this wthout super
 //When defining a constructor in the child class, you must call super() before accessing this,
 // as this is not initialized until the parent class constructor is executed.
         this.email = email
