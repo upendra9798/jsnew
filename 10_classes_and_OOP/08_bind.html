@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>Button clicked</button>
+</body>
+<script>
+    class React{
+        constructor(){
+            this.library = "React"
+            this.server = "https://localhost:300"
+
+            //requirement
+            document 
+                .querySelector('button')
+                // .addEventListener('click', this.handleClick)
+//In an event listener, the value of this defaults to the element that triggered the event (in this case, the <button> element), not the class instance.
+    
+    //So use bind - Bind the handleClick method to the class instance in the constructor.
+    .addEventListener('click', this.handleClick.bind(this))
+
+        }
+        handleClick(){
+            console.log("button clicked");
+            console.log(this.server);          //shows error without bind 
+//This happens because this does not refer to the React instance (app). Instead, this refers to the <button> element.
+        }
+    }
+//bind creates a new function where this inside the handleClick method is explicitly set to the current instance of the React class (i.e., app).
+// Even though handleClick is passed to addEventListener, where it would normally lose its context,
+//  the bind ensures that this still refers to the class instance.
+    const app=new React()
+</script>
+</html>
