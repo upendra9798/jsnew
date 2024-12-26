@@ -1,8 +1,12 @@
 class User{
     constructor(email, password){
-        this.email = email;
-        this.password = password
+        // this.email = email;
+        // this.password = password
+        this._email = email;     //private-like property( this._email)
+        this._password = password
     }
+
+    //gwt, set - Not everyone can access it directly
 
     get email(){
         // return this.email.toUpperCase()  // this will create STACK OVERFLOW
