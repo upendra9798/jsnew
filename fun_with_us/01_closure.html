@@ -21,23 +21,90 @@
     // init();
 
     // LEXICAL SCOPING
-    function outer(){
-        let username = "hitesh"
-        // console.log("OUTER", secret);
-        function inner(){
-            let secret = "my123"
-            console.log("inner", username);
-        }
-        function innerTwo(){
-            console.log("innerTwo", username);
-            console.log(secret);   //no access
-        }
-        inner()
-        innerTwo()
+    // function outer(){
+    //     let username = "hitesh"
+    //     // console.log("OUTER", secret);
+    //     function inner(){
+    //         let secret = "my123"
+    //         console.log("inner", username);
+    //     }
+    //     function innerTwo(){
+    //         console.log("innerTwo", username);
+    //         console.log(secret);   //no access
+    //     }
+    //     inner()
+    //     innerTwo()
 
-    }
-    outer()
-    console.log("TOO OUTER", username);  // no access
+    // }
+    // outer()
+    // console.log("TOO OUTER", username);  // no access
 //Lexical scoping - Inner(child) fn can acces Outer(parent) function's scope but vice versa is not true
+
+
+
+//  CLOSURE
+
+function makeFunc() {
+        const name = "Mozilla";
+        function displayName() {
+            console.log(name);
+        }
+        return displayName;
+// When we return a function then only fn not returns but it's whole lexical_scope(important to say) returns
+    }
+
+    const myFunc = makeFunc();
+    myFunc();
+
+/*
+1.Function inside a function:
+displayName is defined inside makeFunc.
+
+2.Returning the inner function:
+makeFunc returns the displayName function.
+
+3.Closure:
+The displayName function remembers the variable name from makeFunc's scope because of the closure.
+
+displayName is created inside makeFunc, so it has access to makeFunc's variables, including name.
+Even after makeFunc finishes, displayName retains access to name because of the closure.
+
+Closures allow a function to "remember" and access variables from its lexical (surrounding) scope even after the outer function has returned.
+*/
+</script>
+<!-- Example of closure -->
+<script>
+    // document.getElementById("orange").onclick = function(){  // onclick needs a function
+    //     document.body.style.backgroundColor = 'orange'
+    // }
+    // document.getElementById("green").onclick = function(){  // onclick needs a function
+    //     document.body.style.backgroundColor = 'green'
+    // }
+
+// This will be a problem if we have to set 500 colors, so we have to create a function
+
+function clickHandler(color){
+        // document.body.style.backgroundColor = `${color}` //Due to this color 
+        // will show before clicking, so we have to write this in function
+
+        return function(){
+        document.body.style.backgroundColor = `${color}` 
+        } // this fn have acess of color due to closure and lexical scoping
+//In this case, the anonymous function inside clickHandler has access to the color variable, 
+// even though clickHandler has already finished running. - Closure
+}
+document.getElementById("green").onclick = clickHandler("green")
+document.getElementById("orange").onclick = clickHandler("orange")
+     
+     /*
+// ANother method (without closure)
+     document.getElementById("green").onclick = function() {
+    clickHandler("green");
+};
+
+document.getElementById("orange").onclick = function() {
+    clickHandler("orange");
+};
+*/
 </script>
 </html>
